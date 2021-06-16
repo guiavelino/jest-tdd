@@ -1,0 +1,2 @@
+export const typeErrorMessage = 'A função deve receber um número como argumento';
+export const rangeErrorMessage = 'A função deve receber um número como argumento, e o valor desse argumento deve ser maior ou igual a 0';

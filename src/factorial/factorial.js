@@ -1,7 +1,17 @@
-export default number => {
-  let factorial = 1;  
-  for (let i = 1; i < number; number--) {
-    factorial *= number;
+import { typeErrorMessage, rangeErrorMessage } from './utils';
+
+export default function getFactorial(number) {
+  const isNotNumber = typeof number !== 'number';
+  const isNumberOutOfRange = number < 0;
+  const isNumberOneOrZero = number === 0 || number === 1;
+
+  if (isNotNumber) {
+    throw new TypeError(typeErrorMessage);
   }
-  return factorial;
+
+  if (isNumberOutOfRange) {
+    throw new RangeError(rangeErrorMessage);
+  }
+
+  return isNumberOneOrZero ? 1 : number * getFactorial(number - 1);
 }
